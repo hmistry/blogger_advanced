@@ -1,4 +1,7 @@
 JsbloggerCodemash::Application.routes.draw do
+  resources :pages
+
+
   resources :articles
   resources :comments
   resource  :dashboard
@@ -9,6 +12,7 @@ JsbloggerCodemash::Application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+  get '/:id' => 'pages#show'
 
   root to: 'dashboard#show'
 end
